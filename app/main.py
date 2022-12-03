@@ -18,5 +18,5 @@ def vi_main_page(language = "vi"):
 
 @app.route('/')
 def main():
-    template_path = "./vi/index.html"
+    template_path = "./en/index.html"
     return render_template(template_path)
