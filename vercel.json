@@ -1,5 +1,14 @@
 {
-    "rewrites": [
-        { "source": "/(.*)", "destination": "/app/main" }
+    "builds": [
+      {
+        "src": "app/wsgi.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "app/wsgi.py"
+      }
     ]
-}
+  }
