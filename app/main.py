@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 
 
 
@@ -18,5 +18,10 @@ def vi_main_page(language = "vi"):
 
 @app.route('/')
 def main():
-    template_path = "./en/index.html"
-    return render_template(template_path)
+    default_path = "./en"
+    return redirect(default_path)
+
+@app.route('/result', methods=["POST"])
+def process_result():
+    input_essay = request.form["input_essay"]
+    return input_essay
