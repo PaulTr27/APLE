@@ -8,8 +8,19 @@
   <link rel="stylesheet" href="{{url_for('static', filename='style.css') }}">
 
 </head>
-<scripts>
-<body>
+<script>
+  function set_tab(){
+    const state = {{default|tojson}};
+    if (state){
+      document.getElementById("tab1").checked=true;
+      document.getElementById("tab2").checked=false;
+    } else {
+      document.getElementById("tab2").checked=true;
+      document.getElementById("tab1").checked=false;
+    }
+  }
+</script>
+<body onload="set_tab()">
      
   <!-- Navbar items -->
   <div class="headbar">
@@ -30,10 +41,12 @@
    
 <body>
 <!-- partial:index.partial.html -->
+
 <h1>Vietnamese Essay Assistant</h1>
+
 <div class="tabs">
   
-  <input type="radio" id="tab1" name="tab-control" checked>
+  <input type="radio" id="tab1" name="tab-control">
   <input type="radio" id="tab2" name="tab-control">
   <input type="radio" id="tab3" name="tab-control">  
   <input type="radio" id="tab4" name="tab-control">
@@ -59,7 +72,7 @@
           <div class="text_input"> 
             <div class="input_div">
             <p>Testing header</p>
-            <form action="./result" id="input_form" method="post">
+            <form action="./en" id="input_form" method="post">
               <span>
               <textarea name="input_essay" form="input_form" placeholder="Type your essay here"></textarea>
               </span>
@@ -68,6 +81,9 @@
             </div>
             <div class="output_div">
               <p>Result column</p> 
+              <div class="result">
+                <div>{{ result | safe }}</div>
+              </div>
             </div>
           </div>
         </section>
@@ -82,6 +98,5 @@
   </div>
 </div>
 <!-- partial -->
-  
 </body>
 </html>

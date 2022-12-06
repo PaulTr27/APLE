@@ -382,7 +382,7 @@ body h1 {
   margin-left: 10%;
   margin-top: 20px;
   font: Arial;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: small;
   
 }
@@ -411,9 +411,48 @@ input[type=submit]{
   margin-left: 10%;
   margin-top: 20px;
   font: Arial;
-  font-size: 14px;
-  font-weight: small;
-  
+  font-size: 16px;
+  font-weight: small; 
+}
+
+.result div {
+  margin-left: 10% ;
+  max-width: 50vw;
+  height: 300px;
+  width: 80%;
+  font: Arial;
+  font-size: 12px;
+  font-weight: small; 
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+}
+
+
+.tooltip {
+  font: Arial;
+  font-size: 12px;
+  position: relative;
+  background-color: #f87878ba;
+}
+.tooltip .tooltiptext {
+  font: Arial;
+  font-size: 10px;
+  visibility: hidden;
+  width: 30px;
+  background-color: #f87878;
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -15px;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }
 .input_div textarea {
   border: none;
@@ -426,7 +465,7 @@ input[type=submit]{
   height: 300px;
   padding: 10px 10px;
   border: #f1f1f1;
-  font-size: 12px;
+  font-size: 13px;
   box-sizing: border-box;
   overflow: auto;
   display: block;
