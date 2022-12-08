@@ -2,6 +2,7 @@ import os
 import requests
 import json
 import codecs
+import re
 from flask import Flask, render_template, request, redirect, session, url_for
 
 aple_url = 'http://paultran2734.pythonanywhere.com/'
@@ -29,7 +30,7 @@ def en_main_page():
         '''
     default = (True if is_new else False)
 
-    return render_template(template_path,result=default_text,default=default)
+    return render_template(template_path,result=default_text,text=None,default=default,placeholder="Type your essay here")
 
 @app.route('/vi', methods=["GET"])
 def vi_main_page():
@@ -45,8 +46,19 @@ def main():
 @app.route('/en', methods=["POST"])
 def process_result():
     force = False
-    template_path = f"./en/index.html"
+    template_path = "./en/result.html"
     input_essay = request.form["input_essay"]
+    try:
+        alt_input = request.form["submit_suggest"]
+    except:
+        alt_input = None
+    else: 
+        alt_input = request.form["submit_suggest"]
+
+    if alt_input != None:
+        input_essay = re.sub('<[^<]+?>', '',alt_input)
+        force = True
+    
     if len(input_essay.strip()) < 10:
         state = json.dumps({"result":"Please type your essay before submitting!"})
         return redirect(url_for(".en_main_page",state=state))
@@ -54,21 +66,23 @@ def process_result():
     payload = json.dumps({'input_text':input_essay},ensure_ascii=False)
     spell_load = {'sentence':input_essay}
     spellcheck = requests.post(url=viettelai_url,json=spell_load).json()
-    if len(spellcheck) == 0 or force:
+    suggestions = spellcheck['result']['suggestions']
+    if len(suggestions) == 0 or force:
         result = requests.post(url=aple_url,json=payload)
+        display_essay = result.text
     else:
-        for i in spellcheck['result']['suggestions']:
+        template_path = f"./en/spellcor.html"
+        for i in suggestions:
             start = i['startIndex']
             end = i['endIndex']
             original = i['originalText']
             suggestion = i['suggestion']
+            alt_essay = display_essay.replace(original,suggestion)
             display_essay = display_essay.replace(original,
-                                                  f'<span class="tooltip">{original}<span class="tooltiptext">{suggestion}</span></span>')
-            
-            
-            
-            
+                                                  f'<span class="tooltip">{suggestion}<span class="tooltiptext">{original}</span></span>')
+            alert = "We have detected some spelling errors in your essay.<br> Either you submit our suggested corrections, or manually fix your spelling and submit again."
+            return render_template(template_path,result=display_essay,default=False,alert=alert,placeholder=input_essay,alt_essay=alt_essay)
             
 
     
-    return render_template(template_path,result=display_essay,default=False)
+    return render_template(template_path,result=display_essay,default=False,placeholder=input_essay)

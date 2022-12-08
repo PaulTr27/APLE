@@ -54,7 +54,7 @@
 <div class="tabs">
   
   <input type="radio" id="tab1" name="tab-control">
-  <input type="radio" id="tab2" name="tab-control">
+  <input type="radio" id="tab2" name="tab-control" checked>
   <input type="radio" id="tab3" name="tab-control">  
   <input type="radio" id="tab4" name="tab-control">
   <ul>
@@ -81,16 +81,19 @@
             <p>Testing header</p>
             <form action="./en" id="input_form" method="post">
               <span>
-              <textarea name="input_essay" form="input_form" placeholder = "{{placeholder}}"></textarea>
+              <textarea name="input_essay" form="input_form">{{placeholder}}</textarea>
               </span>
               <input type="submit">
             <form>
             </div>
             <div class="output_div">
-              <p>Result column</p> 
+              <div class='alert'> Result column <span class='alert_text'>{{ alert | safe }}</span> </div> 
               <div class="result">
                 <div>{{ result | safe }}</div>
               </div>
+              <button type='hidden' id="submit_suggest" name="submit_suggest" value="{{alt_essay}}" form='input_form'>
+                Submit our suggestions
+              </button>
             </div>
           </div>
         </section>
