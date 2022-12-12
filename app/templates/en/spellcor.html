@@ -79,17 +79,17 @@
           <h2>Service</h2>
           <div class="text_input"> 
             <div class="input_div">
-            <h4>Testing header</h4>
+            <h4>Input area</h4>
             <form action="./en" id="input_form" method="post">
               <span>
               <textarea spellcheck="false" name="input_essay" form="input_form">{{placeholder}}</textarea>
               </span>
               <input type="hidden" id="force" name="force" value="True">
             </form>
-            <button type="submit" value="Submit" class="button">Submit your essay</button>
+            <button type="submit" value="Submit" form="input_form" class="button">Submit your essay</button>
             </div>
             <div class="output_div">
-              <div class='alert'> Result column <span class='alert_text'>{{ alert | safe }}</span> </div> 
+              <div class='alert'> Result <span class='alert_text'>{{ alert | safe }}</span> </div> 
               <div class="result">
                 <div>{{ result | safe }}</div>
               </div>
