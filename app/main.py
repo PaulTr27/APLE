@@ -80,7 +80,7 @@ def vi_main_page():
 
 @app.route('/')
 def main():
-    default_path = "./en"
+    default_path = "./vi"
     return redirect(default_path)
 
 @app.route('/en', methods=["POST"])
