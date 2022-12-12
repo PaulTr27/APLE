@@ -5,6 +5,7 @@
 /* selectors relative to radio inputs */
 
 html {
+  overflow: auto;
   width: 100%;
   height: 100%;
 }
@@ -76,10 +77,11 @@ body h1 {
   padding: 50px;
   padding-bottom: 80px;
   width: 90%;
-  height: 700px;
+  max-height: 100vh;
   box-shadow: 0 14px 28px rgb(0, 0, 0), 0 10px 10px rgba(0, 0, 0, 0.22);
   border-radius: 5px;
   min-width: 240px;
+  height:100vh;
 }
 .tabs input[name=tab-control] {
   display: none;
@@ -374,38 +376,26 @@ body h1 {
 
 
 .input_div {
+  position: relative;
   flex: 50%;
   border: 2px solid rgba(0, 0, 0, 0.22);
   border-radius: 15px;
+  height: 90%;
 }
-.input_div p {
+.input_div h4 {
   text-align: center;
   margin-top: 20px;
   font: Arial;
-  font-size: 16px;
   font-weight: small;
   
 }
-input[type=submit]{
-  margin-left: auto;
-  margin-right: auto;
-  font: "Raleway";
-  border: none;
-  color: white;
-  background-color: #428BFF;
-  border-radius: 5px;
-  box-sizing: border-box;
-  width: 90%;
-  height: 30px;
-  text-align: center;
-  display: block;
-  font-size: 16px;
-}
+
 
 .output_div {
   flex: 50%;
   border: 2px solid rgba(0, 0, 0, 0.22);
   border-radius: 15px;
+  height:90%;
 }
 .output_div .alert {
   text-align: center;
@@ -418,25 +408,84 @@ input[type=submit]{
 .output_div p {
   text-align: center;
   margin-top: 20px;
-  font: Arial;
+  font-family: "Raleway";
   font-size: 16px;
-  font-weight: small; 
+  font-weight: bold; 
 
+}
+
+.result {
+  position: relative;
+  border: none;
+  background-color: transparent;
+  resize: none;
+  outline: none;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 550px;
+  padding: 10px 10px;
+  border: #f1f1f1;
+  font-size: 13px;
+  box-sizing: border-box;
+  overflow: auto;
+  display: block;
 }
 
 .result div {
-  margin-left: 10% ;
-  margin-top: 10px;
-  max-width: 50vw;
-  height: 300px;
+  position: relative;
+  text-align: justify;
+  border: none;
+  background-color: transparent;
+  resize: none;
+  outline: none;
   width: 80%;
-  font: Arial;
-  font-size: 12px;
-  font-weight: small; 
-  overflow-wrap: break-word;
+  margin-left: auto;
+  margin-right: auto;
+  height: 60vh;
+  padding: 10px 10px;
+  border: #f1f1f1;
+  font-size: 14px;
+  font-family: "Times New Roman";
   box-sizing: border-box;
+  overflow: auto;
+  display: block;
 }
 
+.button {
+  position: relative;
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Raleway";
+  border: none;
+  color: white;
+  background-color: #428BFF;
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 80%;
+  height: 30px;
+  text-align: center;
+  display: block;
+  font-size: 16px;
+}
+
+.button_alt{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Raleway";
+  border: none;
+  color: white;
+  background-color: #428BFF;
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 80%;
+  height: 30px;
+  text-align: center;
+  display: block;
+  font-size: 16px;
+}
 
 .tooltip {
   font: Arial;
@@ -465,6 +514,8 @@ input[type=submit]{
   opacity: 1;
 }
 .input_div textarea {
+  position: relative;
+  text-align: justify;
   border: none;
   background-color: transparent;
   resize: none;
@@ -472,10 +523,11 @@ input[type=submit]{
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  height: 300px;
+  height: 60vh;
   padding: 10px 10px;
   border: #f1f1f1;
-  font-size: 13px;
+  font-size: 14px;
+  font-family: "Times New Roman";
   box-sizing: border-box;
   overflow: auto;
   display: block;
@@ -490,11 +542,45 @@ input[type=submit]{
   padding: 50px;
   padding-bottom: 80px;
   width: 90%;
-  height: 400px;
+  height: 90vh;
   border-radius: 5px;
   min-width: 240px;
 }
 
+.contact{
+  left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+  padding: 50px;
+  padding-bottom: 80px;
+  width: 80%;
+  height: 90vh;
+  border-radius: 5px;
+  min-width: 240px;
+}
+.group_info{
+  left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+  padding: 50px;
+  padding-bottom: 80px;
+  width: 80%;
+  height: 90vh;
+  border-radius: 5px;
+  min-width: 240px;
+}
+
+.features{
+  left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+  padding: 50px;
+  padding-bottom: 80px;
+  width: 80%;
+  height: 90vh;
+  border-radius: 5px;
+  min-width: 240px;
+}
 .alert {
   position: relative;
   color: red;
@@ -528,4 +614,127 @@ input[type=submit]{
     border-style: solid;
     border-color: rgba(255, 0, 0, 0.5) transparent transparent transparent;
   
+}
+
+.warning {
+  text-align: left;
+  font: Arial;
+  font-weight: bold;
+  font-size: 12px;
+  color:rgba(255, 0, 0);
+}
+
+/* result bar format */
+.result_alt {
+  position: relative;
+  border: none;
+  background-color: transparent;
+  resize: none;
+  outline: none;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  padding: 10px 10px;
+  border: #f1f1f1;
+  font-size: 13px;
+  box-sizing: border-box;
+  overflow: auto;
+  display: block;
+}
+.skillBar {
+  margin-bottom: 1.66em;
+  padding-bottom: 10%; 
+  padding-top: 10%;
+}
+.annotate {
+  display: flex;
+  justify-content: space-between;
+}
+.label {
+    flex: 50%;
+    font-size:13px;
+    padding-left: 5px;
+    text-transform: none;
+    font-family: "Raleway";
+    font-weight: bold;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+.value {
+  flex: 50%;
+  text-align: right;
+  padding-right: 10px;
+  font-size:13px;
+  text-transform: none;
+  font-family: "Raleway";
+  font-weight: bold;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.skillBarContainer {
+  width: 100%;
+  max-width: 350px;
+  height: 10px;
+  background: #e6eae3;
+  background: rgb(8,102,220);
+  background: rgba(8,102,220,.2);
+  overflow: hidden;
+  border-radius:5px;
+}
+
+.skillBarValue {
+  height: 1.66em;
+  float: left;
+  background:#0866dc;
+  background: rgb(8,102,220);
+  background: rgba(8,102,220,.75);
+}
+
+/* Allowed values for the css skill bars */
+.value-0  { width: 0;    }
+.value-10  { width: 10%;  }
+.value-20  { width: 20%;  }
+.value-30  { width: 30%;  }
+.value-40  { width: 40%;  }
+.value-50  { width: 50%;  }
+.value-60  { width: 60%;  }
+.value-70  { width: 70%;  }
+.value-80  { width: 80%;  }
+.value-90  { width: 90%;  }
+.value-100 { width: 100%; }
+
+/*///////////////////////////////////////////////////
+    // Animation \\ 
+///////////////////////////////////////////////////*/
+@-webkit-keyframes slideIn {
+  0% { width: 0; }
+  25% { width:100%; }
+  100% { width: normal; }
+}
+@-moz-keyframes slideIn {
+  0% { width: 0; }
+  25% { width:100%; }
+  100% { width: normal; }
+}
+@-ms-keyframes slideIn {
+  0% { width: 0; }
+  25% { width:100%; }
+  100% { width: normal; }
+}
+@-o-keyframes slideIn {
+  0% { width: 0; }
+  25% { width:100%; }
+  100% { width: normal; }
+}
+@keyframes slideIn {
+  0% { width: 0; }
+  25% { width:100%; }
+  100% { width: normal; }
+}
+.skillBarValue {
+  -webkit-animation: slideIn 2s;
+  -moz-animation: slideIn 2s;
+  -o-animation: slideIn 2s;
+  animation: slideIn 2s;
 }

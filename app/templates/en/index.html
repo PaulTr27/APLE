@@ -6,7 +6,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
   <link rel="stylesheet" href="{{url_for('static', filename='style.css') }}">
-
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <script type="text/javascript">
   function set_tab(){
@@ -73,18 +74,34 @@
   <div class="slider"><div class="indicator"></div></div>
   <div class="content">
     <section>
-      <h2>Features</h2>This is feature description tab</section>
+      <h2>Features</h2>
+      <div class = 'features'> 
+        <h3>Features</h3>
+        <p> At primary levels of education in Vietnam, students are introduced to 5 categories of essays: </p>
+        <ul>
+          <li>Argumentative</li>
+          <li>Anecdote </li>
+          <li>Descriptive</li>
+          <li>Narrative</li>
+          <li>Expository</li>
+        </ul>
+        <p>Using Artificial Intelligence, the A.P.L.E. app helps categorize essays into 5 main categories. Thus helping students practice their intended category and not mistake one for another. It can also check the spelling of the essay and offer alternative suggestions. </p>
+        <h5>To use the app, please go to the "Service" tab!</h5>
+
+      </div>
+    </section>
         <section>
           <h2>Service</h2>
           <div class="text_input"> 
             <div class="input_div">
-            <p>Testing header</p>
+            <h4>Testing header</h4>
             <form action="./en" id="input_form" method="post">
               <span>
-              <textarea name="input_essay" form="input_form" placeholder = "{{placeholder}}"></textarea>
+              <textarea spellcheck="false" name="input_essay" form="input_form" placeholder = "{{placeholder}}"></textarea>
               </span>
-              <input type="submit">
-            <form>
+            </form>
+            <button type="submit" form="input_form" value="Submit" class="button">Submit</button>
+            
             </div>
             <div class="output_div">
               <p>Result column</p> 
@@ -95,12 +112,23 @@
           </div>
         </section>
         <section>
-          <h2>About us</h2>
-          Team information tab
+          <div class="group_info">
+            <h3>Who are we ? </h3>
+              <p> We are 4B2G from Ho Chi Minh University of Technology (HCMUT) class of 2022 </p>
+              <p> 4B2G consist of 6 members from different majors in HCMUT</p>
+              <p> Although we come from different majors, we all agreed on helping the community with what we do best: AI Technology </p>
+              <p> Therefore, we have came up with this web-application to help Vietnamese Literature become easier for students.</p>
+            <h5> For more information about 4B2G and this project, please go to the "Contact" tab.</h5>
+          </div>
         </section>
     <section>
           <h2>Contact</h2>
-          Contact information and Feedback tab
+          <div class="contact">
+            <h3> Contact us</h3>
+            <i class="material-icons" style="font-size:18px">call</i> <span>+84 987924853</span> <br>
+            <i class="material-icons" style="font-size:16px">email</i> <span>phu.tranthien@hcmut.edu.vn</span> <br>
+            <i class="fa fa-facebook">	&nbsp;</i> <a href="https://www.facebook.com/profile.php?id=100087780892777">AI-Powered Literature Education</span> <br>
+          </div>
     </section>
   </div>
 </div>

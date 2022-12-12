@@ -71,6 +71,7 @@
     </svg><br><span>Liên lạc</span></label></li>
   </ul>
   
+  
   <div class="slider"><div class="indicator"></div></div>
   <div class="content">
     <section>
@@ -97,17 +98,20 @@
             <h4>Phần nhập văn bản</h4>
             <form action="./vi" id="input_form" method="post">
               <span>
-              <textarea spellcheck="false" name="input_essay" form="input_form" placeholder = "{{placeholder}}"></textarea>
+              <textarea spellcheck="false" name="input_essay" form="input_form">{{placeholder}}</textarea>
               </span>
+              <input type="hidden" id="force" name="force" value="True">
             </form>
-            <button type="submit" form="input_form" value="Submit" class="button">Gửi</button>
-            
+            <button type="submit" value="Submit" class="button">Gửi bài văn của bạn</button>
             </div>
             <div class="output_div">
-              <p>Phần kết quả</p> 
+              <div class='alert'> Phần kết quả <span class='alert_text'>{{ alert | safe }}</span> </div> 
               <div class="result">
                 <div>{{ result | safe }}</div>
               </div>
+              <button type='hidden' class = "button_alt" id="submit_suggest" name="submit_suggest" value="{{alt_essay}}" form='input_form'>
+                Gửi bài gợi ý của chúng tôi
+              </button>
             </div>
           </div>
         </section>
@@ -121,13 +125,12 @@
           </div>
         </section>
     <section>
-          <h2>Contact</h2>
-          <div class="contact">
-            <h3> Contact us</h3>
-            <i class="material-icons" style="font-size:18px">call</i> <span>+84 987924853</span> <br>
-            <i class="material-icons" style="font-size:16px">email</i> <span>phu.tranthien@hcmut.edu.vn</span> <br>
-            <i class="fa fa-facebook">	&nbsp;</i> <a href="https://www.facebook.com/profile.php?id=100087780892777">AI-Powered Literature Education</span> <br>
-          </div>
+      <div class="contact">
+        <h3> Hãy liên lạc chúng tôi</h3>
+        <i class="material-icons" style="font-size:18px">call</i> <span>+84 987924853</span> <br>
+        <i class="material-icons" style="font-size:16px">email</i> <span>phu.tranthien@hcmut.edu.vn</span> <br>
+        <i class="fa fa-facebook">	&nbsp;</i> <a href="https://www.facebook.com/profile.php?id=100087780892777">AI-Powered Literature Education</span> <br>
+      </div>
     </section>
   </div>
 </div>
