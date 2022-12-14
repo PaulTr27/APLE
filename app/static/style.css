@@ -376,6 +376,7 @@ body h1 {
 
 
 .input_div {
+  overflow: auto;
   position: relative;
   flex: 50%;
   border: 2px solid rgba(0, 0, 0, 0.22);
@@ -390,7 +391,10 @@ body h1 {
   
 }
 
-
+.input_div form {
+  height: 60%;
+  padding: 10px 10px;
+}
 .output_div {
   flex: 50%;
   border: 2px solid rgba(0, 0, 0, 0.22);
@@ -420,10 +424,10 @@ body h1 {
   background-color: transparent;
   resize: none;
   outline: none;
-  width: 90%;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
-  height: 550px;
+  height: 73%;
   padding: 10px 10px;
   border: #f1f1f1;
   font-size: 13px;
@@ -442,7 +446,7 @@ body h1 {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  height: 60vh;
+  height: 100%;
   padding: 10px 10px;
   border: #f1f1f1;
   font-size: 14px;
@@ -489,13 +493,13 @@ body h1 {
 
 .tooltip {
   font: Arial;
-  font-size: 12px;
+  font-size: 14px;
   position: relative;
   background-color: #f87878ba;
 }
 .tooltip .tooltiptext {
   font: Arial;
-  font-size: 10px;
+  font-size: 12px;
   visibility: hidden;
   width: 30px;
   background-color: #f87878;
@@ -523,7 +527,7 @@ body h1 {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  height: 60vh;
+  height: 60%;
   padding: 10px 10px;
   border: #f1f1f1;
   font-size: 14px;
@@ -542,8 +546,9 @@ body h1 {
   padding: 50px;
   padding-bottom: 80px;
   width: 90%;
-  height: 90vh;
+  height: 80vh;
   border-radius: 5px;
+  overflow: auto;
   min-width: 240px;
 }
 
